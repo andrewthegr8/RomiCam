@@ -8,8 +8,10 @@ config = picam2.create_still_configuration(
 )
 
 picam2.configure(config)
-picam2.set_controls({"AfMode": 0})  # manual/infinity
+#picam2.set_controls({"AfMode": 0})  # manual/infinity
 picam2.start()
 
-time.sleep(2)  # allow exposure + autofocus to settle
-picam2.capture_file("no_af.jpg")
+time.sleep(1)  # allow exposure + autofocus to settle
+while True:
+    filename = input('Enter filename: ')
+    picam2.capture_file(filename)
